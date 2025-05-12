@@ -1,5 +1,5 @@
 ---
-
+import { EmotionNavData } from '../data/NavData';
 ---
 
 <nav>
@@ -7,19 +7,13 @@
     <img src="/assets/emotion-centre-logo-horizontal.png" alt="" class="logo-img" />
   </a>
   <ul>
-    <li>
-      <a href="/index.html">{'< Family Tree'}</a>
-    </li>
-    <li>
-      <a href="#contact">Contact</a>
-    </li>
-    <!--
-                <li>
-                    <a href="#appointments">
-                        <button class="btn-primary">Contact</button>
-                    </a>
-                </li>
-                -->
+    {
+      EmotionNavData.map(item => (
+        <li>
+          <a href={item.link}>{item.title}</a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
 
@@ -28,11 +22,6 @@
     <img src="/assets/emotion-centre-logo-horizontal.png" alt="" class="mobile-logo-img" />
   </a>
   <ul>
-    <!-- <li>
-                        <a href="#contact">
-                            <button class="btn-outline">Contact</button>
-                        </a>
-                    </li> -->
     <li><a href="/index.html">{'< Family Tree'}</a></li>
   </ul>
 </div>

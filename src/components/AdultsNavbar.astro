@@ -1,5 +1,5 @@
 ---
-
+import { AdultsNavData } from '../data/NavData';
 ---
 
 <nav>
@@ -7,15 +7,13 @@
     <img src="/assets/logo-white.png" alt="" class="logo-img" />
   </a>
   <ul>
-    <li>
-      <a href="#home">Home</a>
-    </li>
-    <li>
-      <a href="#appointments">Contact</a>
-    </li>
-    <li>
-      <a href="emotion.html">Emotion Centre</a>
-    </li>
+    {
+      AdultsNavData.map(item => (
+        <li>
+          <a href={item.link}>{item.title}</a>
+        </li>
+      ))
+    }
     <!--
                 <li>
                     <a href="#appointments">
@@ -45,17 +43,13 @@
 <div id="sidebar" style="width: 0%;">
   <div class="close"></div>
   <ul>
-    <li class="mobile-link">
-      <a href="#home">Home</a>
-    </li>
-    <li class="mobile-link">
-      <a href="emotion.html">Emotion Centre</a>
-    </li>
-    <!--
-                <li class="mobile-link">
-                    <a href="#seminars">Seminars</a>
-                </li>
-                -->
+    {
+      AdultsNavData.map(item => (
+        <li class="mobile-link">
+          <a href={item.link}>{item.title}</a>
+        </li>
+      ))
+    }
   </ul>
 
   <div class="buttons">
