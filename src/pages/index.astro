@@ -370,6 +370,10 @@ import { TeamData } from '../data/TeamData';
       </a>
     </section>
 
-    <script src="/src/scripts/index-script.js" defer async></script>
+    <!-- <script src="/src/scripts/index-script.js" defer async></script> -->
+    <!-- <script type="module">
+      import '../scripts/index-script.js';
+    </script> This doesn't work on local, prod idk -->
+    <script type="module" src="/src/scripts/index-script.js"></script>
   </body>
 </Layout>
