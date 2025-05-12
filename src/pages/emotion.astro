@@ -1,44 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/emotion-style.scss';
+import EmotionNavbar from '../components/EmotionNavbar.astro';
 ---
 
 <Layout title="Emotion | The Family Tree">
-  <nav class="">
-    <a href="/emotion.html" class="logo">
-      <img src="/assets/emotion-centre-logo-horizontal.png" alt="" class="logo-img" />
-    </a>
-    <ul>
-      <li>
-        <a href="/index.html">{'< Family Tree'}</a>
-      </li>
-      <li>
-        <a href="#contact">Contact</a>
-      </li>
-      <!--
-                <li>
-                    <a href="#appointments">
-                        <button class="btn-primary">Contact</button>
-                    </a>
-                </li>
-                -->
-    </ul>
-  </nav>
-
-  <div class="navbar">
-    <a href="/emotion.html" class="logo">
-      <img src="/assets/emotion-centre-logo-horizontal.png" alt="" class="mobile-logo-img" />
-    </a>
-    <ul>
-      <!-- <li>
-                        <a href="#contact">
-                            <button class="btn-outline">Contact</button>
-                        </a>
-                    </li> -->
-      <li><a href="/index.html">{'< Family Tree'}</a></li>
-    </ul>
-  </div>
-
+  <EmotionNavbar />
   <header id="emotion-home">
     <div class="overlay"></div>
     <div class="header-content">
