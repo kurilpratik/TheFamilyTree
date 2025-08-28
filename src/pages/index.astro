@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import IndexNavbar from '../components/IndexNavbar.astro';
 import { TeamData } from '../data/TeamData';
+import Form from '../components/Form.astro';
 ---
 
 <Layout
@@ -262,6 +263,38 @@ import { TeamData } from '../data/TeamData';
       </a>
     </section>
 
+    <!-- BLOG SECTION  -->
+    <section id="blog" class="container">
+      <div class="featured">
+        <div>
+          <a href="">
+            <img src="/public/assets/seminars/covid.jpg" alt="Blog picture" class="blog-img" />
+          </a>
+          <div class="details">
+            <div class="tag">Adolescent</div>
+            <div class="date">16 May, 2025</div>
+          </div>
+          <a href="">
+            <h4>Five Ways to Connect with Your Adolescent:</h4>
+          </a>
+          <div class="author">
+            <img src="/public/assets/Team/ambika.jpg" alt="Author profile photo" />
+            <p>Ambika Singh</p>
+          </div>
+        </div>
+      </div>
+      <div class="blogs">
+        <div class="blog">
+          <a href="">
+            <h4>An online booking system, how does it work?</h4>
+          </a>
+          <div class="details">
+            <div class="date">16 May, 2025</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="emotion"></section>
 
     <section id="workspace">
@@ -288,71 +321,7 @@ import { TeamData } from '../data/TeamData';
           our best to make you feel safe.
         </p>
       </div>
-
-      <div class="form-row">
-        <div class="form-area">
-          <form name="contact" method="post" data-netlify="true">
-            <h3>Enquiry for an appointment</h3>
-            <input type="hidden" name="subject" value="New lead from Child and Adolescents page" />
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Your Full Name"
-              required
-              class="full-length"
-            />
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your Email Address"
-              required
-              class="full-length"
-            />
-
-            <fieldset>
-              <div class="one-row">
-                <div class="checkbox-container">
-                  <label class="checkbox"
-                    >Appointment
-                    <input type="checkbox" name="options" checked="checked" value="Appointment" />
-                    <span class="checkmark"></span>
-                  </label>
-                </div>
-
-                <div class="checkbox-container">
-                  <label class="checkbox"
-                    >Training/Seminar
-                    <input type="checkbox" name="options" value="Training/Seminar" />
-                    <span class="checkmark"></span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="checkbox-container">
-                <label class="checkbox"
-                  >Supervision
-                  <input type="checkbox" name="options" value="Supervision" />
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-            </fieldset>
-
-            <textarea
-              name="message"
-              id="message"
-              cols="30"
-              rows="6"
-              placeholder="Your Message"
-              required></textarea>
-            <button type="submit" class="btn-primary">Send Enquiry</button>
-          </form>
-        </div>
-        <div class="img-area">
-          <img src="/assets/appointments-new.jpeg" alt="" />
-        </div>
-      </div>
+      <Form />
     </section>
 
     <section id="footer">
