@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import '../styles/adults.scss';
 import AdultsNavbar from '../components/AdultsNavbar.astro';
+import FormAdults from '../components/FormAdults.astro';
 ---
 
 <Layout
@@ -108,140 +109,102 @@ import AdultsNavbar from '../components/AdultsNavbar.astro';
         our best to make you feel safe.
       </p>
     </div>
-
-    <div class="form-row">
-      <div class="form-area">
-        <form name="contact-adults" method="post" data-netlify="true">
-          <h3>Enquiry for an adult's appointment</h3>
-          <input type="hidden" name="subject" value="New lead from adults page" />
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Your Full Name"
-            required
-            class="full-length"
-          />
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Your Email Address"
-            required
-            class="full-length"
-          />
-
-          <fieldset>
-            <div class="one-row">
-              <div class="checkbox-container">
-                <label class="checkbox"
-                  >Appointment
-                  <input type="checkbox" name="options" checked="checked" value="Appointment" />
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-
-              <div class="checkbox-container">
-                <label class="checkbox"
-                  >Training/Seminar
-                  <input type="checkbox" name="options" value="Training/Seminar" />
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-            </div>
-
-            <div class="checkbox-container">
-              <label class="checkbox"
-                >ISTDP
-                <input type="checkbox" name="options" value="istdp" />
-                <span class="checkmark"></span>
-              </label>
-            </div>
-          </fieldset>
-
-          <textarea
-            name="message"
-            id="message"
-            cols="30"
-            rows="6"
-            placeholder="Your Message"
-            required></textarea>
-          <button type="submit" class="btn-primary">Send Enquiry</button>
-        </form>
-      </div>
-      <div class="img-area">
-        <!-- <img src="/assets/image-4-452x570.jpg" alt=""> -->
-      </div>
+    <FormAdults />
+    <div class="img-area">
+      <!-- <img src="/assets/image-4-452x570.jpg" alt=""> -->
     </div>
   </section>
+</Layout>
 
-  <section id="footer">
-    <a href="#home">
-      <img src="/assets/logo-white.png" alt="" />
-    </a>
-    <h3>
-      Mental Health Team <br />
-      Tuesday–Saturday by appointment <br />
-      B5/28, GF, Safdurjung enclave, New Delhi | +91-11-26107477
-    </h3>
+<section id="footer">
+  <a href="#home">
+    <img src="/assets/logo-white.png" alt="" />
+  </a>
+  <h3>
+    Mental Health Team <br />
+    Tuesday–Saturday by appointment <br />
+    B5/28, GF, Safdurjung enclave, New Delhi | +91-11-26107477
+  </h3>
 
-    <a href="https://instagram.com/familytree.camhs" target="_blank">
-      <img src="/assets/insta-icon.png" alt="" width="56px" />
-    </a>
-  </section>
+  <a href="https://instagram.com/familytree.camhs" target="_blank">
+    <img src="/assets/insta-icon.png" alt="" width="56px" />
+  </a>
+</section>
 
-  <script>
-    //NAVBAR
+<script>
+  //NAVBAR
 
-    const navbar = document.querySelector('nav') as HTMLElement;
-    const header = document.querySelector('header') as HTMLElement;
-    const logoImg = document.querySelector('.logo-img') as HTMLImageElement;
+  const navbar = document.querySelector('nav') as HTMLElement;
+  const header = document.querySelector('header') as HTMLElement;
+  const logoImg = document.querySelector('.logo-img') as HTMLImageElement;
 
-    const headerOptions = {
-      rootMargin: '-100px 0px 0px 0px',
-    };
+  const headerOptions = {
+    rootMargin: '-100px 0px 0px 0px',
+  };
 
-    const headerObserver = new IntersectionObserver(function (entries, headerObserver) {
-      entries.forEach(entry => {
-        //console.log(entry.target)
-        if (!entry.isIntersecting) {
-          navbar.classList.add('navbar-scrolled');
-          logoImg.src = '/assets/logo.png';
-        } else {
-          navbar.classList.remove('navbar-scrolled');
-          logoImg.src = '/assets/logo-white.png';
-        }
-      });
-    }, headerOptions);
+  const headerObserver = new IntersectionObserver(function (entries, headerObserver) {
+    entries.forEach(entry => {
+      //console.log(entry.target)
+      if (!entry.isIntersecting) {
+        navbar.classList.add('navbar-scrolled');
+        logoImg.src = '/assets/logo.png';
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+        logoImg.src = '/assets/logo-white.png';
+      }
+    });
+  }, headerOptions);
 
-    headerObserver.observe(header);
+  headerObserver.observe(header);
 
-    //Mobile Navbar
+  //Mobile Navbar
 
-    const mobileNavbar = document.querySelector('.navbar') as HTMLElement;
-    const mobileLogoImg = document.querySelector('.mobile-logo-img') as HTMLImageElement;
-    const mobileHeaderObserver = new IntersectionObserver(function (entries, mobileHeaderObserver) {
-      entries.forEach(entry => {
-        //console.log(entry.target)
-        if (!entry.isIntersecting) {
-          mobileNavbar.classList.add('navbar-mobile-scrolled');
-          mobileLogoImg.src = '/assets/logo.png';
-        } else {
-          mobileNavbar.classList.remove('navbar-mobile-scrolled');
-          mobileLogoImg.src = '/assets/logo-white.png';
-        }
-      });
-    }, headerOptions);
+  const mobileNavbar = document.querySelector('.navbar') as HTMLElement;
+  const mobileLogoImg = document.querySelector('.mobile-logo-img') as HTMLImageElement;
+  const mobileHeaderObserver = new IntersectionObserver(function (entries, mobileHeaderObserver) {
+    entries.forEach(entry => {
+      //console.log(entry.target)
+      if (!entry.isIntersecting) {
+        mobileNavbar.classList.add('navbar-mobile-scrolled');
+        mobileLogoImg.src = '/assets/logo.png';
+      } else {
+        mobileNavbar.classList.remove('navbar-mobile-scrolled');
+        mobileLogoImg.src = '/assets/logo-white.png';
+      }
+    });
+  }, headerOptions);
 
-    mobileHeaderObserver.observe(header);
+  mobileHeaderObserver.observe(header);
 
-    //Sidebar
+  //Sidebar
 
-    const menuIcon = document.querySelector('.menu-icon') as HTMLImageElement;
-    const sideBar = document.querySelector('#sidebar') as HTMLElement;
-    const closeIcon = document.querySelector('.close') as HTMLImageElement;
+  const menuIcon = document.querySelector('.menu-icon') as HTMLImageElement;
+  const sideBar = document.querySelector('#sidebar') as HTMLElement;
+  const closeIcon = document.querySelector('.close') as HTMLImageElement;
 
-    menuIcon.addEventListener('click', () => {
+  menuIcon.addEventListener('click', () => {
+    if (sideBar.style.width == '0%') {
+      sideBar.style.width = '100%';
+      sideBar.style.opacity = '1';
+    } else {
+      sideBar.style.opacity = '0';
+    }
+  });
+
+  closeIcon.addEventListener('click', () => {
+    if (sideBar.style.width == '100%') {
+      sideBar.style.width = '0%';
+      sideBar.style.opacity = '0';
+    } else {
+      sideBar.style.width = '100%';
+      sideBar.style.opacity = '1';
+    }
+  });
+
+  const mobileLinks = document.getElementsByClassName('mobile-link');
+
+  for (var i = 0; i < mobileLinks.length; i++) {
+    mobileLinks[i].addEventListener('click', () => {
       if (sideBar.style.width == '0%') {
         sideBar.style.width = '100%';
         sideBar.style.opacity = '1';
@@ -249,28 +212,5 @@ import AdultsNavbar from '../components/AdultsNavbar.astro';
         sideBar.style.opacity = '0';
       }
     });
-
-    closeIcon.addEventListener('click', () => {
-      if (sideBar.style.width == '100%') {
-        sideBar.style.width = '0%';
-        sideBar.style.opacity = '0';
-      } else {
-        sideBar.style.width = '100%';
-        sideBar.style.opacity = '1';
-      }
-    });
-
-    const mobileLinks = document.getElementsByClassName('mobile-link');
-
-    for (var i = 0; i < mobileLinks.length; i++) {
-      mobileLinks[i].addEventListener('click', () => {
-        if (sideBar.style.width == '0%') {
-          sideBar.style.width = '100%';
-          sideBar.style.opacity = '1';
-        } else {
-          sideBar.style.opacity = '0';
-        }
-      });
-    }
-  </script>
-</Layout>
+  }
+</script>

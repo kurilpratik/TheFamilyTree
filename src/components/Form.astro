@@ -1,9 +1,19 @@
 <div class="form-row">
   <div class="form-area">
-    <form name="contact" id="contactForm" action="/.netlify/functions/sendFormMail" method="POST">
+    <form
+      name="contact"
+      id="contactForm"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      data-astro-reload
+    >
       <h3>Enquiry for an appointment</h3>
-      <p>Testing Astro Form w/ new setup</p>
+
+      <!-- Replace with your Access Key -->
+      <input type="hidden" name="access_key" value="b1002d9f-13a0-469e-b80f-d5441db2a328" />
       <input type="hidden" name="subject" value="New lead from Child and Adolescents page" />
+      <input type="hidden" name="from_name" value="Contact Form" />
+
       <input
         type="text"
         name="name"
@@ -52,8 +62,11 @@
       <textarea name="message" id="message" cols="30" rows="6" placeholder="Your Message" required
       ></textarea>
 
-      <!-- Honeypot (leave empty) -->
-      <input type="text" name="website" class="hidden" autocomplete="off" tabindex="-1" />
+      <!-- Honeypot Spam Protection -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+      <!-- Custom Confirmation / Success Page -->
+      <input type="hidden" name="redirect" value="https://thefamilytree.in/success" />
 
       <button type="submit" class="btn-primary">Send Enquiry</button>
     </form>

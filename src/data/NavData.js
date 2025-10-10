@@ -15,10 +15,10 @@ const IndexNavData = [
     title: 'Seminars',
     link: '#seminars',
   },
-  {
-    title: 'Blog',
-    link: '#blog',
-  },
+  // {
+  //   title: 'Blog',
+  //   link: '#blog',
+  // },
   {
     title: 'Contact',
     link: '#appointments',
