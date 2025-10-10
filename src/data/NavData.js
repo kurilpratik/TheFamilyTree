@@ -25,7 +25,7 @@ const IndexNavData = [
   },
   {
     title: 'Emotion Centre',
-    link: 'emotion.html',
+    link: '/emotion',
   },
 ];
 
@@ -40,14 +40,14 @@ const AdultsNavData = [
   },
   {
     title: 'Emotion Centre',
-    link: 'emotion.html',
+    link: '/emotion',
   },
 ];
 
 const EmotionNavData = [
   {
     title: '< Family Tree',
-    link: '/index.html',
+    link: '/',
   },
   {
     title: 'Contact',
