@@ -1,0 +1,27 @@
+---
+import { EmotionNavData } from '../data/NavData';
+---
+
+<nav>
+  <a href="/emotion.html" class="logo">
+    <img src="/assets/emotion-centre-logo-horizontal.png" alt="" class="logo-img" />
+  </a>
+  <ul>
+    {
+      EmotionNavData.map(item => (
+        <li>
+          <a href={item.link}>{item.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<div class="navbar">
+  <a href="/emotion.html" class="logo">
+    <img src="/assets/emotion-centre-logo-horizontal.png" alt="" class="mobile-logo-img" />
+  </a>
+  <ul>
+    <li><a href="/index.html">{'< Family Tree'}</a></li>
+  </ul>
+</div>

@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/emotion-style.scss';
+import EmotionNavbar from '../components/EmotionNavbar.astro';
+---
+
+<Layout title="Emotion | The Family Tree">
+  <EmotionNavbar />
+  <header id="emotion-home">
+    <div class="overlay"></div>
+    <div class="header-content">
+      <h1>Emotion Centre</h1>
+      <p>Emotion Centre is a welcoming, quiet, screen-free nook for book lovers of all ages.</p>
+      <a href="#contact">
+        <button class="btn-outline">Contact</button>
+      </a>
+    </div>
+  </header>
+
+  <section class="about container">
+    <img src="/assets/emotion-centre-logo.png" alt="" />
+    <p>
+      Emotion Centre is a welcoming, quiet, screen-free nook for book lovers of all ages. Emerging
+      out of the yearsof experience that the psychotherapists at Family Tree have in working with
+      children and their parents, we invite you to attend to your emotional internal world through
+      stories and pictures. <br />
+      Often, this process of focusing and a slower pace is calming and enlivening, especially in today’s
+      digital world where our attention span is drastically shrinking. If you are a parent and would
+      like to help your child develop a reading habit, or you would like to have time with your child
+      away from digital devices (including your own), this is the place to be.
+    </p>
+  </section>
+
+  <section class="reasons">
+    <div class="container">
+      <p class="heading">We reach out to books for many reasons:</p>
+      <div class="cards">
+        <div class="card">
+          <img src="/assets/pin.png" alt="Emotion Centre Icon" />
+          <p>To learn something</p>
+        </div>
+        <div class="card">
+          <img src="/assets/pin.png" alt="Emotion Centre Icon" />
+          <p>To feel something</p>
+        </div>
+        <div class="card">
+          <img src="/assets/pin.png" alt="Emotion Centre Icon" />
+          <p>To avoid feeling something</p>
+        </div>
+        <div class="card">
+          <img src="/assets/pin.png" alt="Emotion Centre Icon" />
+          <p>To fill up time</p>
+        </div>
+        <div class="card">
+          <img src="/assets/pin.png" alt="Emotion Centre Icon" />
+          <p>To laugh</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="emotion-info container">
+    <img src="/assets/no-phone.png" alt="" />
+    <p class="heading">
+      Want to raise HAPPY, SUCCESSFUL kids? <br />
+      ‘WAIT AS LONG AS POSSIBLE TO GIVE THEM A PHONE', says a Yale expert Laurie Santos.
+    </p>
+    <div class="row">
+      <p>
+        At Emotion Centre, the booksare curated and catalogued by emotional themes, not by author
+        reading age ortitle.
+      </p>
+      <img src="/assets/book-tent.png" alt="" />
+      <p>
+        Emotion Centre also offers brief therapeutic work through the use of stories with children
+        under 11 years of age. We work with a lowsliding fee scale and offer individual
+        psychotherapy for children.
+      </p>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="left">
+        <p>Have a Query?</p>
+        <p>
+          Contact us at - <a href="tel:9873333542">9873333542</a> / <a href="tel:9013962794"
+            >9013962794</a
+          > / <a href="tel:+91-11-26107477">+91-11-26107477</a>
+        </p>
+        <p>
+          For more details, contact Shweta Dharamdasani at <a
+            href="mailto:emotioncentredelhi@gmail.com">emotioncentredelhi@gmail.com</a
+          >
+        </p>
+      </div>
+      <div class="right">
+        <a href="/emotion.html">
+          <img src="/assets/emotion-centre-logo.png" alt="" />
+        </a>
+        <p>
+          Follow us on: <a
+            href="https://www.instagram.com/emotioncentre/"
+            target="_blank"
+            class="insta">Instagram</a
+          >
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    //NAVBAR
+
+    const navbar = document.querySelector('nav') as HTMLElement;
+    const header = document.querySelector('header') as HTMLElement;
+    const logoImg = document.querySelector('.logo-img') as HTMLImageElement;
+
+    const headerOptions = {
+      rootMargin: '-100px 0px 0px 0px',
+    };
+
+    const headerObserver = new IntersectionObserver(function (entries, headerObserver) {
+      entries.forEach(entry => {
+        //console.log(entry.target)
+        if (!entry.isIntersecting) {
+          navbar.classList.add('navbar-scrolled');
+          logoImg.src = '/assets/emotion-centre-logo-horizontal-red.png';
+        } else {
+          navbar.classList.remove('navbar-scrolled');
+          logoImg.src = '/assets/emotion-centre-logo-horizontal.png';
+        }
+      });
+    }, headerOptions);
+
+    headerObserver.observe(header);
+
+    //Mobile Navbar
+
+    const mobileNavbar = document.querySelector('.navbar') as HTMLElement;
+    const mobileLogoImg = document.querySelector('.mobile-logo-img') as HTMLImageElement;
+    const mobileHeaderObserver = new IntersectionObserver(function (entries, mobileHeaderObserver) {
+      entries.forEach(entry => {
+        //console.log(entry.target)
+        if (!entry.isIntersecting) {
+          mobileNavbar.classList.add('navbar-mobile-scrolled');
+          mobileLogoImg.src = '/assets/emotion-centre-logo-horizontal-red.png';
+        } else {
+          mobileNavbar.classList.remove('navbar-mobile-scrolled');
+          mobileLogoImg.src = '/assets/emotion-centre-logo-horizontal.png';
+        }
+      });
+    }, headerOptions);
+
+    mobileHeaderObserver.observe(header);
+  </script>
+</Layout>

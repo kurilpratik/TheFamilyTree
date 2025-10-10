@@ -1,0 +1,216 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/adults.scss';
+import AdultsNavbar from '../components/AdultsNavbar.astro';
+import FormAdults from '../components/FormAdults.astro';
+---
+
+<Layout
+  title="Adults | The Family Tree"
+  description="Family Tree is a Mental Health Team offering consultations and Intensive Short Term Dynamic Psychotherapy (ISTDP) for adults over the age of 25 when slots are available in the team."
+>
+  <AdultsNavbar />
+  <header id="home">
+    <div class="header-content">
+      <h1>Let’s talk about things that matter to you</h1>
+      <p>
+        Family Tree offers psychotherapy to adults over the age of 25 when slots are available in
+        the team.
+      </p>
+      <!-- <h3>Book Appointment</h3> -->
+      <div class="buttons">
+        <a href="#appointments">
+          <button class="btn-outline">Book Appointment</button>
+        </a>
+        <!-- <a href="./index.html">
+                        <button class="btn-outline">Child and Adolescent</button>
+                    </a> -->
+      </div>
+      <audio controls autoplay>
+        <!-- <source src="horse.ogg" type="audio/ogg"> -->
+        <source src="./assets/bol.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </header>
+
+  <section class="adult-info container">
+    <!-- <img src="/assets/image-3-452x570.jpg" alt=""> -->
+    <h3>What we offer :</h3>
+    <p>
+      At Family Tree, all the psychologists are trained to work with adults using an interactive
+      experiential approach called Intensive Short Term Dynamic Psychotherapy. You can find out more
+      about it at <a href="https://iedta.net/edt/about-edt/types-of-edt/istdp/" target="_blank"
+        >IEDTA
+      </a> .<br />
+      We will offer you an initial assessment session in which you have an opportunity to see how we
+      work and if the process works for you.
+      <br /><br />
+    </p>
+  </section>
+
+  <section class="adult-info container">
+    <!-- <img src="/assets/image-3-452x570.jpg" alt=""> -->
+    <h3>What is ISTDP :</h3>
+    <p>
+      Intensive Short Term Dynamic Psychotherapy is a brief emotion-focused therapy that draws on
+      principles of psychodynamic and attachment theory.
+      <br /><br />
+      A highly interactive and deeply experiential therapy that provides access into the parts of the
+      mind that are out of conscious awareness and yet impact our behaviour.
+      <br /><br />
+      The task is to help you recognise that feeling which are out of conscious awareness, cause anxiety
+      and nervousness which may make us act in ways that are no longer helpful.
+      <br /><br />
+      ISTDP aims to bring about a change by helping you build awareness and capacity to bear feelings,
+      turn against these specific behaviours that are no longer helpful and face warded-off feelings.
+      This enables you to regulate your anxiety and get rid of the need for maladaptive behaviours.
+      <br /><br />
+    </p>
+    <br /><br />
+    <h3>How we work:</h3>
+    <p>
+      To better understand your concerns and for us to assess whether this process works for you, we
+      recommend a 2-hour-in person First Consultation (Or a 90 minute online consultation)
+      <br /><br />
+      By the end of this consultation, we will have clarity on how you would like to proceed and whether
+      what we offer can be of help to you.
+      <br /><br />
+      Sessions will be video recorded. The recording is for us to be able to review the sessions and
+      seek supervision to make this process more effective for you.
+    </p>
+    <br /><br />
+    <h3>Fee</h3>
+    <p>
+      The fee for the initial consultation <i>in person</i> : <br />
+      Duration: 2 hours <br />
+      Cost : ₹7000/- <br /><br />
+      The fee for the initial consultation <i>online</i> : <br />
+      Duration: 90 minutes <br />
+      Cost : ₹5500/- <br /><br />
+      Our charges are 3500/- for an hour-long appointment.
+      <br /><br />
+      Duration and frequency of appointments are co decided after the initial consultation.
+    </p>
+  </section>
+
+  <section id="appointments">
+    <h1>Book an Appointment</h1>
+    <div class="text-info" class="container">
+      <p>
+        Our charges are INR 3500 an hour. If this is difficult for you to afford, please bring it up
+        with your psychotherapist. When we book an appointment with you, we keep that hour aside for
+        you. If you cannot make it for some reason, please let us know at least 48 hours in advance
+        so we can offer the time to someone who is waiting for an appointment.
+      </p>
+      <p>
+        We charge for missed appointments and cancellations under 48 hrs. We understand that what
+        you are doing takes courage. We work hard to keep your personal story confidential and do
+        our best to make you feel safe.
+      </p>
+    </div>
+    <FormAdults />
+    <div class="img-area">
+      <!-- <img src="/assets/image-4-452x570.jpg" alt=""> -->
+    </div>
+  </section>
+</Layout>
+
+<section id="footer">
+  <a href="#home">
+    <img src="/assets/logo-white.png" alt="" />
+  </a>
+  <h3>
+    Mental Health Team <br />
+    Tuesday–Saturday by appointment <br />
+    B5/28, GF, Safdurjung enclave, New Delhi | +91-11-26107477
+  </h3>
+
+  <a href="https://instagram.com/familytree.camhs" target="_blank">
+    <img src="/assets/insta-icon.png" alt="" width="56px" />
+  </a>
+</section>
+
+<script>
+  //NAVBAR
+
+  const navbar = document.querySelector('nav') as HTMLElement;
+  const header = document.querySelector('header') as HTMLElement;
+  const logoImg = document.querySelector('.logo-img') as HTMLImageElement;
+
+  const headerOptions = {
+    rootMargin: '-100px 0px 0px 0px',
+  };
+
+  const headerObserver = new IntersectionObserver(function (entries, headerObserver) {
+    entries.forEach(entry => {
+      //console.log(entry.target)
+      if (!entry.isIntersecting) {
+        navbar.classList.add('navbar-scrolled');
+        logoImg.src = '/assets/logo.png';
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+        logoImg.src = '/assets/logo-white.png';
+      }
+    });
+  }, headerOptions);
+
+  headerObserver.observe(header);
+
+  //Mobile Navbar
+
+  const mobileNavbar = document.querySelector('.navbar') as HTMLElement;
+  const mobileLogoImg = document.querySelector('.mobile-logo-img') as HTMLImageElement;
+  const mobileHeaderObserver = new IntersectionObserver(function (entries, mobileHeaderObserver) {
+    entries.forEach(entry => {
+      //console.log(entry.target)
+      if (!entry.isIntersecting) {
+        mobileNavbar.classList.add('navbar-mobile-scrolled');
+        mobileLogoImg.src = '/assets/logo.png';
+      } else {
+        mobileNavbar.classList.remove('navbar-mobile-scrolled');
+        mobileLogoImg.src = '/assets/logo-white.png';
+      }
+    });
+  }, headerOptions);
+
+  mobileHeaderObserver.observe(header);
+
+  //Sidebar
+
+  const menuIcon = document.querySelector('.menu-icon') as HTMLImageElement;
+  const sideBar = document.querySelector('#sidebar') as HTMLElement;
+  const closeIcon = document.querySelector('.close') as HTMLImageElement;
+
+  menuIcon.addEventListener('click', () => {
+    if (sideBar.style.width == '0%') {
+      sideBar.style.width = '100%';
+      sideBar.style.opacity = '1';
+    } else {
+      sideBar.style.opacity = '0';
+    }
+  });
+
+  closeIcon.addEventListener('click', () => {
+    if (sideBar.style.width == '100%') {
+      sideBar.style.width = '0%';
+      sideBar.style.opacity = '0';
+    } else {
+      sideBar.style.width = '100%';
+      sideBar.style.opacity = '1';
+    }
+  });
+
+  const mobileLinks = document.getElementsByClassName('mobile-link');
+
+  for (var i = 0; i < mobileLinks.length; i++) {
+    mobileLinks[i].addEventListener('click', () => {
+      if (sideBar.style.width == '0%') {
+        sideBar.style.width = '100%';
+        sideBar.style.opacity = '1';
+      } else {
+        sideBar.style.opacity = '0';
+      }
+    });
+  }
+</script>

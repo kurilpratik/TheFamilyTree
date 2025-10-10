@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+function getDayOfWeek() {
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  return days[new Date().getDay()];
+}
+const day = getDayOfWeek();
+---
+
+<Layout title="Thank You">
+  <section class="thankyou">
+    <img src="/assets/leadership.gif" alt="Success Icon" />
+
+    <p>
+      <strong>
+        Thank you for your message! You can expect to hear from us by the following {day}.
+      </strong>
+      <br />
+      Please note: Our appointment times are pre-allocated. Appointment availability is subject to cancellation
+      and there is a waitlist.
+      <br />
+      Once you write to us, we will discuss your request in the team and get back to you with the next
+      available slot, based on the waitlist.
+      <br />
+      (Average wait time: one week)
+    </p>
+    <a href="/adults">
+      <button class="btn-primary">Go back to site</button>
+    </a>
+  </section>
+</Layout>
+<style>
+  .thankyou {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0 auto;
+  }
+  img {
+    height: 8rem;
+  }
+</style>

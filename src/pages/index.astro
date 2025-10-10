@@ -1,0 +1,456 @@
+---
+import Layout from '../layouts/Layout.astro';
+import IndexNavbar from '../components/IndexNavbar.astro';
+import { TeamData } from '../data/TeamData';
+import Form from '../components/Form.astro';
+---
+
+<Layout
+  title="Family Tree - Mental Health Team | Psychotherapy for emotional distress"
+  description="Family Tree is a Mental Health Team in New Delhi offering psychotherapy for emotional distress. We provide support for children, adolescents and families with emotional and relationship difficulties."
+>
+  <body>
+    <!-- <a href="#seminars">
+			<div class="display">
+				<div class="container">
+					At Family Tree we are offering a half day Workshop - ONLY FOR RECENT M.A GRADUATES - as an Introduction to Therapeutic Work with School Age Children (Age 6 - 11)
+				</div>
+			</div>
+		</a> -->
+    <IndexNavbar />
+    <header id="home">
+      <div class="header-content">
+        <h1>Let's talk about things that matter to you - Netlify test</h1>
+        <p>Psychotherapy for emotional distress</p>
+        <h3>Book Appointment</h3>
+        <div class="buttons">
+          <a href="adults.html">
+            <button class="btn-outline">Adults</button>
+          </a>
+          <a href="#appointments">
+            <button class="btn-outline">Child and Adolescent</button>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="connected container">
+      <h1>We are all different but we are connected</h1>
+      <div class="line"></div>
+      <p>
+        Chances are that you have found your way here after speaking to someone you already know.
+        This is important, because it suggests that you have started the process of 'doing something
+        different' and sharing a bit of what is important to you. <br /><br />
+        Conversations at Family Tree tend to be about stuff that is central to us all: Feelings – whether
+        consciously known or leaking out in some way, and Relationships – past and present.
+        <br /><br />
+        The conversations are also about ordinary, everyday events, behaviour and difficulties, which
+        are part of everyone's lives but can also cause distress – big or small. If it matters to you,
+        it is worth talking about.
+      </p>
+    </section>
+
+    <section class="info">
+      <img src="/assets/image-3-452x570.jpg" alt="" />
+      <p>
+        Family Tree is a Mental Health Team set up in 2018 to address the gap in such services in
+        New Delhi. It is composed of Child and Adolescent Psychotherapists who work to support
+        children, adolescents and families with emotional and relationship difficulties.
+        <br /><br />
+        It is a self-funded team based out of Safdurjung Enclave and we have seen over 500 children and
+        adolescents in the last 5 years. All of our referrals are by word-of-mouth.
+      </p>
+    </section>
+
+    <section class="info reverse">
+      <img src="/assets/image-4-452x570.jpg" alt="" />
+      <p>
+        Addressing emotional matters takes courage and can take time. You may need to see us
+        regularly for some weeks/months. During this time, there will be moments when you want to
+        avoid the emotional hard work and therefore avoid us. Frequently, this happens by
+        'forgetting' an appointment or not feeling like coming.
+        <br /><br />
+        We make it easy for you to remember your next appointment with us by trying to keep it at the
+        same time and day every week. However, it is your responsibility to keep the appointment, since
+        it is part of you taking care of yourself. Sessions at Family Tree are one hour long, unless
+        otherwise discussed.
+      </p>
+    </section>
+
+    <section id="team">
+      <h4>The Team</h4>
+      <div class="members">
+        {
+          TeamData.map(member => (
+            <div class="member">
+              <img src={member.image} alt={member.name} />
+              <h2>{member.name}</h2>
+              <p class="short-text" style="display: block;">
+                {member.shortText}
+              </p>
+              <p class="full-text" style="display: none;" set:html={member.fullText} />
+              <button class="btn-outline">Read more</button>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!--Prints -->
+
+    <section id="prints">
+      <h4>Newspaper Prints</h4>
+      <div class="prints">
+        <a href="/prints/one.html" target="_blank"><div class="paper one"></div></a>
+        <a href="/prints/two.html" target="_blank"><div class="paper two"></div></a>
+        <a href="/prints/three.html" target="_blank"><div class="paper three"></div></a>
+        <a href="/prints/four.html" target="_blank"><div class="paper four"></div></a>
+        <a href="/prints/five.html" target="_blank"><div class="paper seven"></div></a>
+      </div>
+    </section>
+
+    <!-- Books -->
+
+    <section id="bookid" class="book-container container">
+      <div class="book">
+        <img src="/assets/book.jpg" alt="" />
+      </div>
+      <div class="content">
+        <h1>Love and Rage</h1>
+        <p>
+          Love & Rage is a book about children, both the child in those of us who are
+          chronologically adult, as well as the children we may be interacting with. It takes a
+          reader for a journey into their inner world of intense, raging emotions which often goes
+          unheeded by the outside adult world. With the trained ear of a child psychotherapist, the
+          author listens to children's stories as they emerge in her consulting room, through word
+          and play, and translates them for adults.
+          <br /><br />
+          Supported by the author's own personal associations and a bedrock of psychodynamic theory,
+          the book throws light on what comes into a psychotherapist's consulting room, and demonstrates
+          that it is not unusual, bizarre or crazy. Instead, it is the ordinary stuff of everyday life,
+          taking place in every family. That sometimes we all carry the pain of complex feelings within
+          ourselves for all of our lives—love and rage towards the people we are closest to.
+          <br /><br />
+          This book is essential reading for anyone close to children—parents and parents-to-be, teachers,
+          school counsellors—but also for anyone looking to attend to the child within them.
+        </p>
+        <a
+          href="https://www.amazon.in/Love-Rage-Inner-Worlds-Children/dp/9382579303"
+          target="_blank"
+        >
+          <button class="btn-outline">Buy Book</button>
+        </a>
+      </div>
+    </section>
+    <section class="book-container container">
+      <div class="book">
+        <img src="/assets/book-2.jpg" alt="" />
+      </div>
+      <div class="content">
+        <h1>Interruptions in Identity: Engaging with Suicidality among the Indian Youth</h1>
+        <p>
+          Interruptions in Identity: Engaging with Suicidality among the Indian Youth explores the
+          shift in the author's perspective from an understanding of 'suicide' to an exploration of
+          suicidality. The shift came organically from her experience of working in a university
+          clinic and interacting with individuals who had communicated to her the presence of
+          'suicidal thoughts' during their sessions. The work is also an examination of how studying
+          a tendency towards committing suicide is necessarily an attempt to understand the complex
+          interplay of the personal and the social which often leads to that tendency described as
+          suicidality. The work turns a psychosocial lens and further elaborates on how suicidality
+          expresses itself in the space between the subject and the therapist within the safe space
+          of a clinic. In taking us through these narratives, the author builds a case that it is
+          important to reflect not just on the nature of individual suffering but also its
+          interaction with the prevalent and relevant socio-political forces
+        </p>
+        <a href="https://amzn.eu/d/fTWDnwv" target="_blank">
+          <button class="btn-outline">Buy Book</button>
+        </a>
+      </div>
+    </section>
+
+    <!--PUBLICATIONS -->
+
+    <section id="publications">
+      <h4>Academic Papers</h4>
+      <div class="articles">
+        <div class="article">
+          <!--<img src="/assets/covid.jpg" alt="">-->
+          <a href="http://dx.doi.org/10.1080/13698036.2014.892728" target="_blank"
+            ><h3>Who observes whom? Infant observation observed</h3></a
+          >
+        </div>
+        <div class="article">
+          <!--<img src="/assets/seminars/adolescent.png" alt="">-->
+          <a href="http://dx.doi.org/10.1080/0075417X.2016.1191199" target="_blank"
+            ><h3>Keeping fathers in mind</h3></a
+          >
+        </div>
+        <div class="article">
+          <!--<img src="/assets/seminars/therapy.png" alt="">-->
+          <a href="https://doi.org/10.1080/0075417X.2021.1900331" target="_blank"
+            ><h3>Psychotherapy with no body in the room</h3></a
+          >
+        </div>
+        <div class="article">
+          <!--<img src="/assets/seminars/reality.png" alt="">-->
+          <a href="https://doi.org/10.1080/13698036.2021.1953395" target="_blank"
+            ><h3>Envy in the gaze</h3></a
+          >
+        </div>
+        <div class="article">
+          <!--<img src="/assets/seminars/reality.png" alt="">-->
+          <a href="/" target="_blank"><h3>Play: Seeing Children's Inner Worlds</h3></a>
+        </div>
+        <div class="article">
+          <!--<img src="/assets/seminars/reality.png" alt="">-->
+          <a href="/" target="_blank"
+            ><h3>
+              Living in the times of pandemic: <br />
+              Re Living and remembering loss and trauma
+            </h3></a
+          >
+        </div>
+      </div>
+      <!--
+			<a href="">
+				<h1>Child Executive Control as a Moderator of the Longitudinal Association Between Sleep Problems and Subsequent Attention-Deficit/Hyperactivity Disorder Symptoms</h1>
+			</a>
+			
+			<h4 class="nupur">Nupur D Paiva</h4>
+			-->
+      <a href="#appointments">
+        <button class="btn-outline">Contact for Full Access</button>
+      </a>
+    </section>
+
+    <section id="seminars">
+      <h4>Trainings and Seminars</h4>
+      <!-- <h1>Our previous seminar conducted in 2020 named as 'Fundamentals Of' which covers various fundamental topics of mental health</h1> -->
+      <div class="articles">
+        <div class="article active">
+          <img src="/assets/seminars/wdg24cover.png" alt="" />
+          <a
+            href="https://drive.google.com/file/d/1L6YDrwkI8-9Y1Le7pLNX7ktrqL0kc0fA/view?usp=sharing"
+            target="_blank"
+            ><h3>
+              Work Discussion Group: Case Discussion to Make Psychotherapeutic Interventions
+              Effective
+            </h3></a
+          >
+          <div class="active">Active | 2nd May, 2024 Onwards</div>
+        </div>
+        <div class="article">
+          <img src="/assets/seminars/workshop.jpg" alt="" />
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeh3u-y3wKIJs2sbGRDUWjYq7flaYjddObtoamGj4flIKTUuA/viewform"
+            target="_blank"
+            ><h3>Introduction to Therapeutic Work with School Age Children (Age 6 - 11)</h3></a
+          >
+        </div>
+        <div class="article">
+          <img src="/assets/seminars/anxiety.jpg" alt="" />
+          <a href=""><h3>Fundamentals of Working With Anxiety</h3></a>
+        </div>
+        <div class="article">
+          <img src="/assets/seminars/adolesecents-tft.jpeg" alt="" />
+          <a href=""><h3>Fundamentals of Adolescent Mental Health</h3></a>
+        </div>
+      </div>
+
+      <h4 class="white">To be a part of such seminars and trainings contact us below</h4>
+      <a href="#appointments">
+        <button class="btn-outline">Contact Us</button>
+      </a>
+    </section>
+
+    <!-- BLOG SECTION  -->
+    <!-- <section id="blog" class="container">
+      <div class="featured">
+        <div>
+          <a href="">
+            <img src="/public/assets/seminars/covid.jpg" alt="Blog picture" class="blog-img" />
+          </a>
+          <div class="details">
+            <div class="tag">Adolescent</div>
+            <div class="date">16 May, 2025</div>
+          </div>
+          <a href="">
+            <h4>Five Ways to Connect with Your Adolescent:</h4>
+          </a>
+          <div class="author">
+            <img src="/public/assets/Team/ambika.jpg" alt="Author profile photo" />
+            <p>Ambika Singh</p>
+          </div>
+        </div>
+      </div>
+      <div class="blogs">
+        <div class="blog">
+          <a href="">
+            <h4>An online booking system, how does it work?</h4>
+          </a>
+          <div class="details">
+            <div class="date">16 May, 2025</div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="emotion"></section>
+
+    <section id="workspace">
+      <h4>Our Workspace</h4>
+      <div class="gallery">
+        <div class="img one"></div>
+        <div class="img two"></div>
+        <div class="img three"></div>
+      </div>
+    </section>
+
+    <section id="appointments">
+      <h1>Book an Appointment</h1>
+      <div class="text-info" class="container">
+        <p>
+          Our charges are INR 3500 an hour. If this is difficult for you to afford, please bring it
+          up with your psychotherapist. When we book an appointment with you, we keep that hour
+          aside for you. If you cannot make it for some reason, please let us know at least 48 hours
+          in advance so we can offer the time to someone who is waiting for an appointment.
+        </p>
+        <p>
+          We charge for missed appointments and cancellations under 48 hrs. We understand that what
+          you are doing takes courage. We work hard to keep your personal story confidential and do
+          our best to make you feel safe.
+        </p>
+      </div>
+      <Form />
+    </section>
+
+    <section id="footer">
+      <a href="#home">
+        <img src="/assets/logo-white.png" alt="" />
+      </a>
+      <h3>
+        Mental Health Team <br />
+        Tuesday–Saturday by appointment <br />
+        B5/28, GF, Safdurjung enclave, New Delhi | +91-11-26107477
+      </h3>
+
+      <a href="https://instagram.com/familytree.camhs" target="_blank">
+        <img src="/assets/insta-icon.png" alt="" width="56px" />
+      </a>
+    </section>
+
+    <!-- <script src="/src/scripts/index-script.js" defer async></script> -->
+    <!-- <script type="module">
+      import '../scripts/index-script.js';
+    </script> This doesn't work on local, prod idk -->
+    <!-- <script type="module" src="/src/scripts/index-script.js"></script> Doesn't work on prod -->
+    <script>
+      //NAVBAR
+
+      const navbar = document.querySelector('nav') as HTMLElement;
+      const header = document.querySelector('header') as HTMLElement;
+      const logoImg = document.querySelector('.logo-img') as HTMLImageElement;
+
+      const headerOptions = {
+        rootMargin: '-100px 0px 0px 0px',
+      };
+
+      const headerObserver = new IntersectionObserver(function (entries, headerObserver) {
+        entries.forEach(entry => {
+          //console.log(entry.target)
+          if (!entry.isIntersecting) {
+            navbar.classList.add('navbar-scrolled');
+            logoImg.src = '/assets/logo.png';
+          } else {
+            navbar.classList.remove('navbar-scrolled');
+            logoImg.src = '/assets/logo-white.png';
+          }
+        });
+      }, headerOptions);
+
+      headerObserver.observe(header);
+
+      //Mobile Navbar
+
+      const mobileNavbar = document.querySelector('.navbar') as HTMLElement;
+      const mobileLogoImg = document.querySelector('.mobile-logo-img') as HTMLImageElement;
+      const mobileHeaderObserver = new IntersectionObserver(function (
+        entries,
+        mobileHeaderObserver
+      ) {
+        entries.forEach(entry => {
+          //console.log(entry.target)
+          if (!entry.isIntersecting) {
+            mobileNavbar.classList.add('navbar-mobile-scrolled');
+            mobileLogoImg.src = '/assets/logo.png';
+          } else {
+            mobileNavbar.classList.remove('navbar-mobile-scrolled');
+            mobileLogoImg.src = '/assets/logo-white.png';
+          }
+        });
+      }, headerOptions);
+
+      mobileHeaderObserver.observe(header);
+
+      //Sidebar
+
+      const menuIcon = document.querySelector('.menu-icon') as HTMLImageElement;
+      const sideBar = document.querySelector('#sidebar') as HTMLElement;
+      const closeIcon = document.querySelector('.close') as HTMLImageElement;
+
+      menuIcon.addEventListener('click', () => {
+        if (sideBar.style.width == '0%') {
+          sideBar.style.width = '100%';
+          sideBar.style.opacity = '1';
+        } else {
+          sideBar.style.opacity = '0';
+        }
+      });
+
+      closeIcon.addEventListener('click', () => {
+        if (sideBar.style.width == '100%') {
+          sideBar.style.width = '0%';
+          sideBar.style.opacity = '0';
+        } else {
+          sideBar.style.width = '100%';
+          sideBar.style.opacity = '1';
+        }
+      });
+
+      const mobileLinks = document.getElementsByClassName('mobile-link');
+
+      for (var i = 0; i < mobileLinks.length; i++) {
+        mobileLinks[i].addEventListener('click', () => {
+          if (sideBar.style.width == '0%') {
+            sideBar.style.width = '100%';
+            sideBar.style.opacity = '1';
+          } else {
+            sideBar.style.opacity = '0';
+          }
+        });
+      }
+
+      //TEAM
+
+      const members = document.querySelectorAll('.member');
+
+      members.forEach(member => {
+        const shortText = member.querySelector('.short-text') as HTMLElement;
+        const fullText = member.querySelector('.full-text') as HTMLElement;
+        const btn = member.querySelector('.btn-outline') as HTMLButtonElement;
+
+        btn?.addEventListener('click', () => {
+          if ((shortText as HTMLElement).style.display === 'block') {
+            (shortText as HTMLElement).style.display = 'none';
+            (fullText as HTMLElement).style.display = 'block';
+            btn.innerHTML = 'Read Less';
+          } else {
+            shortText.style.display = 'block';
+            fullText.style.display = 'none';
+            btn.innerHTML = 'Read More';
+          }
+        });
+      });
+    </script>
+  </body>
+</Layout>
