@@ -1,10 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-function getDayOfWeek() {
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  return days[new Date().getDay()];
-}
-const day = getDayOfWeek();
 ---
 
 <Layout title="Thank You">
@@ -13,7 +8,8 @@ const day = getDayOfWeek();
 
     <p>
       <strong>
-        Thank you for your message! You can expect to hear from us by the following {day}.
+        Thank you for your message! You can expect to hear from us by the following <span id="day"
+        ></span>.
       </strong>
       <br />
       Please note: Our appointment times are pre-allocated. Appointment availability is subject to cancellation
@@ -29,6 +25,15 @@ const day = getDayOfWeek();
     </a>
   </section>
 </Layout>
+<script>
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  document.addEventListener('DOMContentLoaded', () => {
+    const dayElement = document.getElementById('day');
+    if (dayElement) {
+      dayElement.textContent = days[new Date().getDay()];
+    }
+  });
+</script>
 <style>
   .thankyou {
     width: 35%;
@@ -44,87 +49,3 @@ const day = getDayOfWeek();
     height: 8rem;
   }
 </style>
-<!-- <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Thank You</title>
-    <meta name="viewport" content="width=width, initial-scale=1.0" />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Montserrat', sans-serif;
-        scroll-behavior: smooth;
-        overflow-x: hidden;
-      }
-      .thankyou {
-        display: flex;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 30%;
-        gap: 1rem;
-        margin: 0 auto;
-      }
-      img {
-        height: 8rem;
-      }
-      p {
-        font-size: 1.25rem;
-        line-height: 173%;
-        opacity: 0.6;
-      }
-      .btn-primary {
-        background: #81864e;
-        color: #fff;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 4px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .btn-primary:hover {
-        background: #156064;
-      }
-      @media (max-width: 600px) {
-        .thankyou {
-          width: 90%;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <section class="thankyou container">
-      <img src="/assets/leadership.gif" alt="Success Icon" />
-      <p>
-        <strong>
-          Thank you for your message! You can expect to hear from us by the following
-          <span id="day"></span>.
-        </strong>
-        <br />
-        Please note: Our appointment times are pre-allocated. Appointment availability is subject to
-        cancellation and there is a waitlist.
-        <br /><br />
-        Once you write to us, we will discuss your request in the team and get back to you with the
-        next available slot, based on the waitlist.
-        <br />
-        (Average wait time: one week)
-        <br /><br />
-      </p>
-      <a href="/">
-        <button class="btn-primary">Go back to site</button>
-      </a>
-    </section>
-    <script>
-      function getDayOfWeek() {
-        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        return days[new Date().getDay()];
-      }
-      document.getElementById('day').textContent = getDayOfWeek();
-    </script>
-  </body>
-</html> -->

@@ -1,10 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-function getDayOfWeek() {
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  return days[new Date().getDay()];
-}
-const day = getDayOfWeek();
 ---
 
 <Layout title="Thank You">
@@ -13,7 +8,8 @@ const day = getDayOfWeek();
 
     <p>
       <strong>
-        Thank you for your message! You can expect to hear from us by the following {day}.
+        Thank you for your message! You can expect to hear from us by the following <span id="day"
+        ></span>.
       </strong>
       <br />
       Please note: Our appointment times are pre-allocated. Appointment availability is subject to cancellation
@@ -29,6 +25,15 @@ const day = getDayOfWeek();
     </a>
   </section>
 </Layout>
+<script>
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  document.addEventListener('DOMContentLoaded', () => {
+    const dayElement = document.getElementById('day');
+    if (dayElement) {
+      dayElement.textContent = days[new Date().getDay()];
+    }
+  });
+</script>
 <style>
   .thankyou {
     width: 35%;
