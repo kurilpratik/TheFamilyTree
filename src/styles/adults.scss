@@ -71,26 +71,7 @@ header {
       font-size: 3rem;
     }
   }
-  .text-info {
-    display: flex;
-    flex-direction: row;
-    p {
-      margin-left: 2.2rem;
-      font-size: 16px;
-      line-height: 173.4%;
-      color: #156064;
-      opacity: 1;
-      padding-block: 1.5rem;
-      padding-inline-end: 4rem;
-      margin-bottom: 2rem;
-      width: 35%;
-      color: var(--primary) !important;
-      @include mobile {
-        width: 50%;
-        padding-inline-end: 12px;
-      }
-    }
-  }
+
   .form-row {
     display: flex;
     justify-content: space-between;
