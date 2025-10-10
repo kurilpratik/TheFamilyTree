@@ -87,27 +87,3 @@ header {
     }
   }
 }
-
-#footer {
-  background-image: url('/assets/footer.png');
-  background-size: cover;
-  color: #fff;
-  padding: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  a {
-    margin-bottom: 3rem;
-  }
-  h3 {
-    font-size: 1.25rem;
-    text-align: center;
-    line-height: 160%;
-    font-weight: 200;
-    margin-bottom: 3rem;
-    @include mobile {
-      font-size: 16px;
-    }
-  }
-}
