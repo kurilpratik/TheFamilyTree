@@ -1,0 +1,76 @@
+---
+// Dummy blog data
+const blogPosts = [
+  {
+    title: 'Five Ways to Connect with Your Adolescent',
+    description:
+      'There are many words which adults use to describe their teenagers but the phrases that usually stand out to us are: ‘angsty’ ‘rebellious’ ‘cold’ ‘withdrawn’ ‘manipulative’. The words are not novel. They have been used generationally to describe a challenging phase of development where the child moves from being a child to becoming a young adult.',
+    image: null, // Optional image
+    author: {
+      name: 'Ambika Singh',
+      image: '/assets/image-3-452x570.jpg',
+    },
+    link: '#',
+  },
+  {
+    title: 'ADVANCED ANALYTICS HELPS A MINING COMPANY IMPROVE QUALITY AND REDUCE COSTS',
+    description:
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    image: '/assets/image-4-452x570.jpg', // Optional image
+    author: {
+      name: 'Sarah Johnson',
+      image: '/assets/image-4-452x570.jpg',
+    },
+    link: '#',
+  },
+  {
+    title: "A TECHNOLOGY COMPANY'S TRANSFORMATION RESTORES ITS GROWTH TRAJECTORY",
+    description:
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+    image: '/assets/image-3-452x570.jpg', // Optional image
+    author: {
+      name: 'Michael Chen',
+      image: '/assets/image-3-452x570.jpg',
+    },
+    link: '#',
+  },
+  {
+    title: 'A B2B FIBER COMPANY REINVENTS ITS COMMERCIAL OPERATIONS',
+    description:
+      'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.',
+    image: null, // Optional image - this one has no image
+    author: {
+      name: 'Emily Davis',
+      image: '/assets/image-4-452x570.jpg',
+    },
+    link: '#',
+  },
+];
+---
+
+<section id="blog" class="container">
+  <div class="blog-posts">
+    {
+      blogPosts.map(post => (
+        <article class="blog-post">
+          <div class="blog-post-content">
+            <h2 class="blog-title">{post.title}</h2>
+            <p class="blog-description">{post.description}</p>
+            <div class="blog-author">
+              <img src={post.author.image} alt={post.author.name} class="author-image" />
+              <span class="author-name">{post.author.name}</span>
+            </div>
+            <a href={post.link} class="read-more">
+              Read more
+            </a>
+          </div>
+          {post.image && (
+            <div class="blog-image-wrapper">
+              <img src={post.image} alt={post.title} class="blog-image" />
+            </div>
+          )}
+        </article>
+      ))
+    }
+  </div>
+</section>
