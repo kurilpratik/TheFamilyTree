@@ -13,7 +13,7 @@ export default defineConfig({
     sanity({
       projectId: 'cxmg0qil',
       dataset: 'production',
-      useCdn: true,
+      useCdn: false,
     }),
   ],
 });
