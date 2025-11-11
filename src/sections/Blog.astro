@@ -5,6 +5,7 @@ import { urlFor } from '../lib/sanityClient';
 const BLOGPOSTS_QUERY = `*[_type == "blogPost"] {
   _id,
   title,
+  slug,
   description,
   image,
   author -> {
@@ -33,7 +34,7 @@ const blogPosts = await sanityClient.fetch(BLOGPOSTS_QUERY);
               />
               <span class="author-name">{post.author.name}</span>
             </div>
-            <a href={post.link} class="read-more">
+            <a href={`/blog/${post.slug.current}`} class="read-more">
               Read more
             </a>
           </div>

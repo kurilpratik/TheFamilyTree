@@ -1,31 +1,31 @@
 const IndexNavData = [
   {
     title: 'Home',
-    link: '#home',
+    link: '/#home',
   },
   {
     title: 'Team',
-    link: '#team',
+    link: '/#team',
   },
   {
     title: 'Publications',
-    link: '#prints',
+    link: '/#prints',
   },
   {
     title: 'Seminars',
-    link: '#seminars',
+    link: '/#seminars',
   },
   {
     title: 'Blog',
-    link: '#blog',
+    link: '/#blog',
   },
   {
     title: 'Contact',
-    link: '#appointments',
+    link: '/#appointments',
   },
   {
     title: 'Emotion Centre',
-    link: 'emotion.html',
+    link: '/emotion',
   },
 ];
 

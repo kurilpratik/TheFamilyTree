@@ -62,3 +62,90 @@ import { IndexNavData } from '../data/NavData';
     </a>
   </div>
 </div>
+<style lang="scss">
+  @import '../styles/basic';
+  @import '../styles/navbar';
+</style>
+<script>
+  //NAVBAR
+
+  const navbar = document.querySelector('nav') as HTMLElement;
+  const header = document.querySelector('header') as HTMLElement;
+  const logoImg = document.querySelector('.logo-img') as HTMLImageElement;
+
+  const headerOptions = {
+    rootMargin: '-100px 0px 0px 0px',
+  };
+
+  const headerObserver = new IntersectionObserver(function (entries, headerObserver) {
+    entries.forEach(entry => {
+      //console.log(entry.target)
+      if (!entry.isIntersecting) {
+        navbar.classList.add('navbar-scrolled');
+        logoImg.src = '/assets/logo.png';
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+        logoImg.src = '/assets/logo-white.png';
+      }
+    });
+  }, headerOptions);
+
+  headerObserver.observe(header);
+
+  //Mobile Navbar
+
+  const mobileNavbar = document.querySelector('.navbar') as HTMLElement;
+  const mobileLogoImg = document.querySelector('.mobile-logo-img') as HTMLImageElement;
+  const mobileHeaderObserver = new IntersectionObserver(function (entries, mobileHeaderObserver) {
+    entries.forEach(entry => {
+      //console.log(entry.target)
+      if (!entry.isIntersecting) {
+        mobileNavbar.classList.add('navbar-mobile-scrolled');
+        mobileLogoImg.src = '/assets/logo.png';
+      } else {
+        mobileNavbar.classList.remove('navbar-mobile-scrolled');
+        mobileLogoImg.src = '/assets/logo-white.png';
+      }
+    });
+  }, headerOptions);
+
+  mobileHeaderObserver.observe(header);
+
+  //Sidebar
+
+  const menuIcon = document.querySelector('.menu-icon') as HTMLImageElement;
+  const sideBar = document.querySelector('#sidebar') as HTMLElement;
+  const closeIcon = document.querySelector('.close') as HTMLImageElement;
+
+  menuIcon.addEventListener('click', () => {
+    if (sideBar.style.width == '0%') {
+      sideBar.style.width = '100%';
+      sideBar.style.opacity = '1';
+    } else {
+      sideBar.style.opacity = '0';
+    }
+  });
+
+  closeIcon.addEventListener('click', () => {
+    if (sideBar.style.width == '100%') {
+      sideBar.style.width = '0%';
+      sideBar.style.opacity = '0';
+    } else {
+      sideBar.style.width = '100%';
+      sideBar.style.opacity = '1';
+    }
+  });
+
+  const mobileLinks = document.getElementsByClassName('mobile-link');
+
+  for (var i = 0; i < mobileLinks.length; i++) {
+    mobileLinks[i].addEventListener('click', () => {
+      if (sideBar.style.width == '0%') {
+        sideBar.style.width = '100%';
+        sideBar.style.opacity = '1';
+      } else {
+        sideBar.style.opacity = '0';
+      }
+    });
+  }
+</script>

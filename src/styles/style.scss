@@ -1,5 +1,171 @@
 @import './basic';
 
+header {
+  background-color: var(--family-tree);
+  background-image: url('/assets/header-bg.jpg');
+  background-size: cover;
+  background-position: 0% 15%;
+  height: 100vh;
+  height: 100dvh;
+  color: #fff;
+
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 60%;
+    margin-inline: auto;
+    gap: 1rem;
+    padding-top: 6rem;
+    @include mobile {
+      width: 90%;
+      padding-top: 2rem;
+    }
+    @include tablet {
+      width: 80%;
+    }
+    h1 {
+      font-size: 3.4rem;
+      @include mobile {
+        font-size: 2.5rem;
+      }
+      @include tablet {
+        font-size: 3rem;
+      }
+    }
+    p {
+      font-size: 16px;
+      padding-block: 1rem;
+      width: 40%;
+      line-height: 1.8rem;
+      margin-bottom: 2rem;
+      @include mobile {
+        width: 90%;
+      }
+      @include tablet {
+        width: 80%;
+        font-size: 1.25rem;
+      }
+    }
+    .buttons {
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+    a {
+      @include mobile {
+        width: 100%;
+      }
+    }
+    button {
+      margin-block: 1rem;
+      margin-inline: 0.5rem;
+      @include tablet {
+        font-size: 1.6rem;
+        padding-inline: 36px;
+        padding-block: 12px;
+        font-size: 1rem;
+      }
+      @include mobile {
+        margin-block: 0.5rem;
+        width: 80%;
+      }
+    }
+  }
+}
+
+.info {
+  width: 60%;
+  margin-inline: auto;
+  display: flex;
+  margin-block: 8rem;
+  padding-block: 2rem;
+  align-items: center;
+  gap: 2rem;
+
+  @include mobile {
+    width: 90%;
+    flex-direction: column;
+    margin-block: 24px;
+  }
+  @include tablet {
+    width: 90%;
+  }
+  img {
+    width: 50%;
+    @include mobile {
+      width: 90%;
+    }
+  }
+  p {
+    width: 50%;
+    font-size: 1.2rem;
+    @include mobile {
+      width: 90%;
+    }
+  }
+}
+
+.connected {
+  background-color: var(--family-tree);
+  background-image: url('/assets/connected.jpg');
+  background-size: cover;
+  padding: 3rem;
+  text-align: center;
+  color: #fff;
+  border-radius: 2rem;
+  margin-top: 8rem;
+  @include mobile {
+    padding: 16px;
+    padding-block: 52px;
+  }
+  h1 {
+    font-size: 3.4rem;
+    width: 70%;
+    margin-inline: auto;
+    @include mobile {
+      width: 80%;
+      font-size: 42px;
+    }
+  }
+  .line {
+    width: 50%;
+    height: 1px;
+    background-color: #fff;
+    margin-inline: auto;
+    margin-block: 3rem;
+    @include mobile {
+      margin-block: 36px;
+    }
+  }
+  p {
+    opacity: 1;
+    width: 70%;
+    margin-inline: auto;
+    @include mobile {
+      width: 90%;
+    }
+  }
+}
+
+.reverse {
+  flex-direction: row-reverse;
+  padding-bottom: 1rem;
+  @include mobile {
+    width: 90%;
+    flex-direction: column;
+    margin-block: 24px;
+    img {
+      //display: none;
+    }
+  }
+}
+
 #team {
   padding-block: 2rem;
   padding-bottom: 6rem;
