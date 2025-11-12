@@ -12,9 +12,18 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^6.3.2",
+    "@sanity/astro": "^3.2.10",
+    "@sanity/client": "^7.12.1",
+    "@sanity/image-url": "^1.2.0",
     "astro": "^5.7.12",
+    "astro-portabletext": "^0.11.3",
     "nodemailer": "^7.0.5",
-    "sass": "^1.88.0"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-is": "^19.2.0",
+    "sanity": "^4.14.0",
+    "sass": "^1.88.0",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "prettier": "^3.5.3",

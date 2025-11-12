@@ -1,0 +1,314 @@
+---
+import IndexNavbar from '../../components/IndexNavbar.astro';
+import Layout from '../../layouts/Layout.astro';
+import { sanityClient } from '../../lib/sanityClient';
+import { urlFor } from '../../lib/sanityClient';
+import { PortableText } from 'astro-portabletext';
+
+export async function getStaticPaths() {
+  const query = `*[_type == "blogPost" && defined(slug.current)] {
+    "slug": slug.current
+  }`;
+
+  const posts = await sanityClient.fetch(query);
+
+  return posts.map((post: { slug: string }) => ({
+    params: { slug: post.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const BLOG_POST_QUERY = `*[_type == "blogPost" && slug.current == $slug][0] {
+  _id,
+  title,
+  description,
+  image,
+  publishedAt,
+  content,
+  author -> {
+    name,
+    image
+  }
+}`;
+
+const post = await sanityClient.fetch(BLOG_POST_QUERY, { slug });
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout title={`${post.title} | The Family Tree Blog`} description={post.description || post.title}>
+  <IndexNavbar />
+  <article class="blog-post-page">
+    <header class="blog-post-header">
+      <div class="blog-post-header-content container">
+        <h1 class="blog-post-title">{post.title}</h1>
+        {post.description && <p class="blog-post-description">{post.description}</p>}
+        <div class="blog-post-meta">
+          {
+            post.author && (
+              <div class="blog-author">
+                {post.author.image && (
+                  <img
+                    src={urlFor(post.author.image).url()}
+                    alt={post.author.name}
+                    class="author-image"
+                  />
+                )}
+                <span class="author-name">{post.author.name}</span>
+              </div>
+            )
+          }
+          {
+            post.publishedAt && (
+              <time class="publish-date" datetime={post.publishedAt}>
+                {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
+            )
+          }
+        </div>
+      </div>
+    </header>
+
+    {
+      post.image && (
+        <div class="blog-post-image-wrapper">
+          <div class="container">
+            <img
+              src={urlFor(post.image).width(1200).url()}
+              alt={post.title}
+              class="blog-post-image"
+            />
+          </div>
+        </div>
+      )
+    }
+
+    <div class="blog-post-content-wrapper">
+      <div class="container">
+        <div class="blog-post-content">
+          {post.content && <PortableText value={post.content} />}
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style lang="scss">
+  @import '../../styles/basic';
+
+  .blog-post-page {
+    min-height: 100vh;
+    background-color: #fff;
+  }
+
+  header {
+    background-image: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding-block: 10rem 4rem;
+  }
+
+  .blog-post-header {
+    .blog-post-header-content {
+      max-width: 800px;
+    }
+    .blog-post-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      //   text-transform: uppercase;
+      color: #1a1a1a;
+      margin: 0 0 1.5rem 0;
+      line-height: 1.3;
+      letter-spacing: 0.5px;
+
+      @include mobile {
+        font-size: 1.75rem;
+        line-height: 1.2;
+      }
+    }
+
+    .blog-post-description {
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: #ffffff;
+      margin: 0 0 2rem 0;
+      @include mobile {
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+    }
+
+    .blog-post-meta {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+
+      @include mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .blog-author {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        .author-image {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+          flex-shrink: 0;
+
+          @include mobile {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        .author-name {
+          font-size: 1rem;
+          color: #e5e5e5;
+          font-weight: 700;
+        }
+      }
+
+      .publish-date {
+        font-size: 0.95rem;
+        color: #e5e5e5;
+      }
+    }
+  }
+
+  .blog-post-image-wrapper {
+    padding-block: 3rem 1rem;
+    // background-color: #f9f9f9;
+
+    @include mobile {
+      padding-block: 2rem;
+    }
+
+    .blog-post-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      margin: 0 auto;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+  }
+
+  .blog-post-content-wrapper {
+    padding-block: 4rem 6rem;
+
+    @include mobile {
+      padding-block: 3rem 4rem;
+    }
+
+    .blog-post-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #1c1c1c;
+
+      @include mobile {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      // PortableText styling
+      :global(p) {
+        margin: 0 0 1.5rem 0;
+      }
+
+      :global(h2) {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 3rem 0 1.5rem 0;
+        color: #1a1a1a;
+        line-height: 1.3;
+
+        @include mobile {
+          font-size: 1.5rem;
+          margin: 2rem 0 1rem 0;
+        }
+      }
+
+      :global(h3) {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 2.5rem 0 1rem 0;
+        color: #1a1a1a;
+        line-height: 1.4;
+
+        @include mobile {
+          font-size: 1.25rem;
+          margin: 2rem 0 0.75rem 0;
+        }
+      }
+
+      :global(ul),
+      :global(ol) {
+        margin: 0 0 1.5rem 0;
+        padding-left: 2rem;
+
+        @include mobile {
+          padding-left: 1.5rem;
+        }
+      }
+
+      :global(li) {
+        margin: 0 0 0.75rem 0;
+      }
+
+      :global(blockquote) {
+        border-left: 4px solid #1a1a1a;
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: #4a4a4a;
+      }
+
+      :global(img) {
+        width: 100%;
+        height: auto;
+        margin: 2rem 0;
+        border-radius: 4px;
+      }
+
+      :global(a) {
+        color: #1a1a1a;
+        text-decoration: underline;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+
+      :global(strong) {
+        font-weight: 700;
+        color: #1a1a1a;
+      }
+
+      :global(em) {
+        font-style: italic;
+      }
+    }
+  }
+</style>

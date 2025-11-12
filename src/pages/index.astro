@@ -5,6 +5,7 @@ import { TeamData } from '../data/TeamData';
 import Form from '../components/Form.astro';
 import AppointmentsInfo from '../components/AppointmentsInfo.astro';
 import IndexFooter from '../components/IndexFooter.astro';
+import Blog from '../sections/Blog.astro';
 ---
 
 <Layout
@@ -22,7 +23,7 @@ import IndexFooter from '../components/IndexFooter.astro';
     <IndexNavbar />
     <header id="home">
       <div class="header-content">
-        <h1>Let's talk about things that matter to you - Netlify test</h1>
+        <h1>Let's talk about things that matter to you</h1>
         <p>Psychotherapy for emotional distress</p>
         <h3>Book Appointment</h3>
         <div class="buttons">
@@ -266,36 +267,7 @@ import IndexFooter from '../components/IndexFooter.astro';
     </section>
 
     <!-- BLOG SECTION  -->
-    <!-- <section id="blog" class="container">
-      <div class="featured">
-        <div>
-          <a href="">
-            <img src="/public/assets/seminars/covid.jpg" alt="Blog picture" class="blog-img" />
-          </a>
-          <div class="details">
-            <div class="tag">Adolescent</div>
-            <div class="date">16 May, 2025</div>
-          </div>
-          <a href="">
-            <h4>Five Ways to Connect with Your Adolescent:</h4>
-          </a>
-          <div class="author">
-            <img src="/public/assets/Team/ambika.jpg" alt="Author profile photo" />
-            <p>Ambika Singh</p>
-          </div>
-        </div>
-      </div>
-      <div class="blogs">
-        <div class="blog">
-          <a href="">
-            <h4>An online booking system, how does it work?</h4>
-          </a>
-          <div class="details">
-            <div class="date">16 May, 2025</div>
-          </div>
-        </div>
-      </div>
-    </section> -->
+    <Blog />
 
     <section id="emotion"></section>
 
@@ -322,91 +294,6 @@ import IndexFooter from '../components/IndexFooter.astro';
     </script> This doesn't work on local, prod idk -->
     <!-- <script type="module" src="/src/scripts/index-script.js"></script> Doesn't work on prod -->
     <script>
-      //NAVBAR
-
-      const navbar = document.querySelector('nav') as HTMLElement;
-      const header = document.querySelector('header') as HTMLElement;
-      const logoImg = document.querySelector('.logo-img') as HTMLImageElement;
-
-      const headerOptions = {
-        rootMargin: '-100px 0px 0px 0px',
-      };
-
-      const headerObserver = new IntersectionObserver(function (entries, headerObserver) {
-        entries.forEach(entry => {
-          //console.log(entry.target)
-          if (!entry.isIntersecting) {
-            navbar.classList.add('navbar-scrolled');
-            logoImg.src = '/assets/logo.png';
-          } else {
-            navbar.classList.remove('navbar-scrolled');
-            logoImg.src = '/assets/logo-white.png';
-          }
-        });
-      }, headerOptions);
-
-      headerObserver.observe(header);
-
-      //Mobile Navbar
-
-      const mobileNavbar = document.querySelector('.navbar') as HTMLElement;
-      const mobileLogoImg = document.querySelector('.mobile-logo-img') as HTMLImageElement;
-      const mobileHeaderObserver = new IntersectionObserver(function (
-        entries,
-        mobileHeaderObserver
-      ) {
-        entries.forEach(entry => {
-          //console.log(entry.target)
-          if (!entry.isIntersecting) {
-            mobileNavbar.classList.add('navbar-mobile-scrolled');
-            mobileLogoImg.src = '/assets/logo.png';
-          } else {
-            mobileNavbar.classList.remove('navbar-mobile-scrolled');
-            mobileLogoImg.src = '/assets/logo-white.png';
-          }
-        });
-      }, headerOptions);
-
-      mobileHeaderObserver.observe(header);
-
-      //Sidebar
-
-      const menuIcon = document.querySelector('.menu-icon') as HTMLImageElement;
-      const sideBar = document.querySelector('#sidebar') as HTMLElement;
-      const closeIcon = document.querySelector('.close') as HTMLImageElement;
-
-      menuIcon.addEventListener('click', () => {
-        if (sideBar.style.width == '0%') {
-          sideBar.style.width = '100%';
-          sideBar.style.opacity = '1';
-        } else {
-          sideBar.style.opacity = '0';
-        }
-      });
-
-      closeIcon.addEventListener('click', () => {
-        if (sideBar.style.width == '100%') {
-          sideBar.style.width = '0%';
-          sideBar.style.opacity = '0';
-        } else {
-          sideBar.style.width = '100%';
-          sideBar.style.opacity = '1';
-        }
-      });
-
-      const mobileLinks = document.getElementsByClassName('mobile-link');
-
-      for (var i = 0; i < mobileLinks.length; i++) {
-        mobileLinks[i].addEventListener('click', () => {
-          if (sideBar.style.width == '0%') {
-            sideBar.style.width = '100%';
-            sideBar.style.opacity = '1';
-          } else {
-            sideBar.style.opacity = '0';
-          }
-        });
-      }
-
       //TEAM
 
       const members = document.querySelectorAll('.member');
