@@ -16,16 +16,17 @@ const IndexNavData = [
     link: '/#seminars',
   },
   {
-    title: 'Blog',
-    link: '/#blog',
+    title: 'Emotion Centre',
+    link: '/emotion',
   },
+
   {
     title: 'Contact',
     link: '/#appointments',
   },
   {
-    title: 'Emotion Centre',
-    link: '/emotion',
+    title: 'Blog',
+    link: '/#blog',
   },
 ];
 
@@ -37,6 +38,10 @@ const AdultsNavData = [
   {
     title: 'Contact',
     link: '#appointments',
+  },
+  {
+    title: 'Children & Adolescents',
+    link: '/',
   },
   {
     title: 'Emotion Centre',
