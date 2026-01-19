@@ -208,10 +208,14 @@ header {
       }
       img {
         width: 22rem;
+        height: 22rem;
+        object-fit: cover;
+        display: block;
         -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
         filter: grayscale(100%);
         @include mobile {
           width: 50vw;
+          height: 50vw;
         }
       }
       h2 {
