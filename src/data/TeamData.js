@@ -58,7 +58,7 @@ const TeamData = [
     <br /><br />
     In 2025, she completed the core training in Intensive Short Term Dynamic Psychotherapy making her an ISTDP Practitioner, certified by the ISTDP Institute, Washington D.C
     <br /><br />
-    Much like the children she works with through play and stories, Shweta enjoys craft activities-making things out of wasted and scrap. What we appreciate the most though is what she makes out of the distress, anxiety and silence that she works with in her young clients.`,
+    Much like the children she works with through play and stories, Shweta enjoys craft activities-making things out of waste and scrap. What we appreciate the most though is what she makes out of the distress, anxiety and silence that she works with in her young clients.`,
   },
 ];
 
