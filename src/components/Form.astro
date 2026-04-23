@@ -26,7 +26,16 @@
         type="email"
         name="email"
         id="email"
-        placeholder="Your Email Address"
+        placeholder="Your Email Address (gmail recommended)"
+        required
+        class="full-length"
+      />
+      <input
+        type="tel"
+        name="phone"
+        id="phone"
+        placeholder="Your Phone Number"
+        pattern="[0-9+ \-()]{7,20}"
         required
         class="full-length"
       />
